@@ -1,0 +1,10 @@
+<p>
+  <b>Login:</b>
+  <%=h @user.login %>
+</p>
+
+<%= link_to "Projects", projects_url %>
+<% if current_user.login == 'admin' -%>
+  <%= link_to 'Register', register_url %>
+<% end -%>
+<%= link_to 'Edit', edit_account_path %>

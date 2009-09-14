@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for user in @users do -%>
+      <tr>
+        <td><%= user.login %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+<%= link_to 'Projects', projects_url %>

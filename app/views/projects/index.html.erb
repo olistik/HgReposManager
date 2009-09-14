@@ -1,0 +1,26 @@
+<h1>Listing Projects</h1>
+
+<% unless flash[:shell_output].blank? -%>
+  <b>Shell output</b>
+  <pre class="flash shell_output">
+    <%= flash[:shell_output] %>
+  </pre>
+<% end -%>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Clone Url</th>
+  </tr>
+  <%- @projects.each do |project|%>
+    <tr>
+      <td><%=h project.name %></td>
+      <td><%= link_to "clone", project.hg_clone_url %></td>
+      <td><%=link_to 'Show', object_url(project) %></td>
+      <td><%=link_to 'Destroy', object_url(project), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Project', new_object_url %>

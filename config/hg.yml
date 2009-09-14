@@ -1,0 +1,7 @@
+scripts:
+  path: /PATH/TO/HG/scripts
+  commands:
+    new: create_new_repo.sh
+    delete: delete_repo.sh
+repos:
+  path: /PATH/TO/HG/repos
