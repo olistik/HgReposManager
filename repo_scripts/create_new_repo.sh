@@ -10,7 +10,6 @@ SCRIPTS_DIR=$3
 SYNC_SCRIPT_NAME=$4
 DESTINATION_HOST=$5
 DESTINATION_DIR=$6
-TEMP_REPOS_DIR=$7
 
 
 cd $REPOS_DIR
@@ -33,7 +32,7 @@ hg -v add
 hg -v commit -m 'first commit'
 echo "Adding mercurial hooks ... "
 echo "[hooks]" > .hg/hgrc
-echo "changegroup = $SCRIPTS_DIR/$SYNC_SCRIPT_NAME \$(pwd) $DESTINATION_HOST $DESTINATION_DIR $TEMP_REPOS_DIR" >> .hg/hgrc
+echo "changegroup = $SCRIPTS_DIR/$SYNC_SCRIPT_NAME \$(pwd) $DESTINATION_HOST $DESTINATION_DIR" >> .hg/hgrc
 cat .hg/hgrc
 echo "First deploy to webtest ... "
-$SCRIPTS_DIR/$SYNC_SCRIPT_NAME $(pwd) $DESTINATION_HOST $DESTINATION_DIR $TEMP_REPOS_DIR
+$SCRIPTS_DIR/$SYNC_SCRIPT_NAME $(pwd) $DESTINATION_HOST $DESTINATION_DIR

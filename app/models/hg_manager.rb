@@ -16,14 +16,12 @@ class HgManager
     params += " " + HG_CONFIG["scripts"]["commands"]["sync"]
     params += " " + HG_CONFIG["webtests"]["host"]
     params += " " + HG_CONFIG["webtests"]["path"]
-    params += " " + HG_CONFIG["temp_repos"]["path"]
     execute_cmd("new", params)
   end
 
   def self.execute_delete(project_name)
     params = project_name
     params += " " + HG_CONFIG["repos"]["path"]
-    params += " " + HG_CONFIG["temp_repos"]["path"]
     params += " " + HG_CONFIG["webtests"]["host"]
     params += " " + HG_CONFIG["webtests"]["path"]
     execute_cmd("delete", params)

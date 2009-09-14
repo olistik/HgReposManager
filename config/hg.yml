@@ -7,8 +7,6 @@ scripts:
     sync: rsync_to_webtest.sh
 repos:
   path: /path/to/repos
-temp_repos:
-  path: /path/to/temp_repos
 webtests:
   host: localhost
   path: /path/to/webtests
