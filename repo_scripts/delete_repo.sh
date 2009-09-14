@@ -1,11 +1,15 @@
 #!/bin/bash
 
-REPOS_DIR="/PATH/TO/HG/repos"
-TEMP_REPOS_DIR="/PATH/TO/HG/temp_repos"
-DESTINATION_HOST="localhost"
-DESTINATION_DIR="/PATH/TO/HG/webtests/"
-
 project_name=$1
+
+#"/PATH/TO/HG/repos"
+REPOS_DIR=$2
+#"/PATH/TO/HG/temp_repos"
+TEMP_REPOS_DIR=$3
+#"localhost"
+DESTINATION_HOST=$4
+#"/PATH/TO/HG/webtests"
+DESTINATION_DIR=$5
 
 echo "Deleting webtest instance ..."
 rsh $DESTINATION_HOST "rm -rf $DESTINATION_DIR/$project_name"

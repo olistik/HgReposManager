@@ -1,7 +1,15 @@
+#change "path" values to match your configuration
 scripts:
-  path: /PATH/TO/HG/scripts
+  path: /path/to/scripts
   commands:
     new: create_new_repo.sh
     delete: delete_repo.sh
+    sync: rsync_to_webtest.sh
 repos:
-  path: /PATH/TO/HG/repos
+  path: /path/to/repos
+temp_repos:
+  path: /path/to/temp_repos
+webtests:
+  host: localhost
+  path: /path/to/webtests
+
