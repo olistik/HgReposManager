@@ -9,4 +9,5 @@ DESTINATION_HOST=$2
 DESTINATION_DIR=$3
 
 cd $project_dir
+hg update
 rsync -az "$project_name" "$DESTINATION_HOST:$DESTINATION_DIR/"
