@@ -10,6 +10,6 @@ class HgManager
   end
 
   def self.project_clone_url(project_name)
-      "ssh://localhost/" + HG_CONFIG["repos"]["path"] + "/" + project_name
+    HG_CONFIG["repos"]["clone_url"] + project_name
   end
 end
