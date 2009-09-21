@@ -5,3 +5,4 @@ scripts:
     delete: delete_repo.sh
 repos:
   path: /PATH/TO/HG/repos
+  clone_url: "http://localhost/hg/"

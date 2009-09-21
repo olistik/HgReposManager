@@ -1,0 +1,16 @@
+<ul>
+  <% unless @user.nil? -%>
+    <li><%= link_to 'Logout', logout_path %></li>
+    <% if @user.is_admin? -%>
+      <li><%= link_to "Projects", projects_path %></li>
+      <li><%= link_to "New Project", new_project_path %></li>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "New User", new_user_path %></li>
+    <% end -%>
+    <% for project in @user.projects do -%>
+      <li><%= link_to project.name, project %></li>
+    <% end -%>
+  <% else -%>
+    <li><%= link_to 'Login', login_path %></li>
+  <% end -%>
+</ul>

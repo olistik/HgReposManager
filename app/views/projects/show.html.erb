@@ -13,6 +13,18 @@
   <%= @project.log %>
 </pre>
 
-<%= link_to "HG Clone url", @project.hg_clone_url %><br />
+<p>
+  <b>Framework</b>
+  <%= @project.framework %>
+</p>
 
+<p>
+  <b>Users</b>
+  <% for user in @project.users do -%>
+    <%= link_to user.login, user %>
+  <% end -%>
+</p>
+
+<%= link_to "HG Clone url", @project.hg_clone_url %><br />
+<%= link_to "Edit users list", edit_project_path(@project) %>
 <%= link_to 'Back', collection_url %>

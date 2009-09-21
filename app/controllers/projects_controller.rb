@@ -1,9 +1,13 @@
 class ProjectsController < ResourceController::Base
+  new_action.before do
+    @users = User.all.collect {|user| [user.login, user.id]}
+  end
+
   create.after do
-    object.update_attribute :log, HgManager::execute_cmd("new", object.name)
+    object.update_attribute :log, HgManager::execute_cmd("new", "#{object.name} #{object.framework}")
   end
 
   destroy.before do
-    flash[:shell_output] = HgManager::execute_cmd("delete", object.name)
+    flash[:shell_output] = HgManager::execute_cmd("delete", "#{object.name} #{object.framework"})
   end
 end
