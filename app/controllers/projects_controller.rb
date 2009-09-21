@@ -8,6 +8,6 @@ class ProjectsController < ResourceController::Base
   end
 
   destroy.before do
-    flash[:shell_output] = HgManager::execute_delete(object.name)
+    flash[:shell_output] = HgManager::execute_cmd("delete", "#{object.name} #{object.framework}")
   end
 end
