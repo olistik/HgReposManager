@@ -1,10 +1,16 @@
 #!/bin/bash
 
-REPOS_DIR="/PATH/TO/HG/repos"
-SCRIPTS_DIR="/PATH/TO/HG/scripts"
-SYNC_SCRIPT_NAME="rsync_to_webtest.sh"
-
 project_name=$1
+
+#"/PATH/TO/HG/repos"
+REPOS_DIR=$2
+#"/PATH/TO/HG/scripts"
+SCRIPTS_DIR=$3
+#"rsync_to_webtest.sh"
+SYNC_SCRIPT_NAME=$4
+DESTINATION_HOST=$5
+DESTINATION_DIR=$6
+
 
 cd $REPOS_DIR
 if [ -e $project_name ]
@@ -26,7 +32,7 @@ hg -v add
 hg -v commit -m 'first commit'
 echo "Adding mercurial hooks ... "
 echo "[hooks]" > .hg/hgrc
-echo "changegroup = $SCRIPTS_DIR/$SYNC_SCRIPT_NAME \$(pwd)" >> .hg/hgrc
+echo "changegroup = $SCRIPTS_DIR/$SYNC_SCRIPT_NAME \$(pwd) $DESTINATION_HOST $DESTINATION_DIR" >> .hg/hgrc
 cat .hg/hgrc
 echo "First deploy to webtest ... "
-$SCRIPTS_DIR/$SYNC_SCRIPT_NAME $(pwd)
+$SCRIPTS_DIR/$SYNC_SCRIPT_NAME $(pwd) $DESTINATION_HOST $DESTINATION_DIR
